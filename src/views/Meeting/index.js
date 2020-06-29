@@ -1,10 +1,14 @@
 
+import './index.scss';
 import React, {useEffect, useState} from 'react';
 import { Helmet } from 'react-helmet';
 import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
 import axios from 'axios';
 
 import api from '../../api';
+import Header from '../../components/Header';
+import FriendsList from '../../components/FriendsList';
+import Friend from '../../components/Friend';
 
 const MeetingView = (props) => {
   const [meetingData, setMeetingData] = useState(null);
@@ -23,25 +27,39 @@ const MeetingView = (props) => {
     return () => cancelSource.cancel('View disposed');
   }, [meetingId]);
 
-  if (!meetingData) {
-    return <div>Loading...</div>
-  } else {
-    return (
-      <div>
-        <header>
-          <h1>Friends Meet App</h1>
-        </header>
-        <OTSession apiKey={meetingData.apiKey}
-                   sessionId={meetingData.sessionId}
-                   token={meetingData.token}>
-          <OTPublisher />
-          <OTStreams>
-            <OTSubscriber />
-          </OTStreams>
-        </OTSession>
-      </div>
-    );
-  }
+  return (
+    <div className="meeting">
+
+      <Helmet>
+        <title>Meeting {meetingId} | Friends Meet</title>
+      </Helmet>
+
+      <Header url={`http://localhost:3000/${meetingId}`}/>
+      {!meetingData ?
+        <div className="meeting__loading">Loading meeting...</div> :
+        <div className="meeting__container">
+          <div className="meeting__info">
+            <h2>Friends list</h2>
+            <FriendsList meetingId={meetingId}>
+              <Friend name="Luis Arboleda" phone="+507 64597978" state="Accepted"/>
+              <Friend name="José Perez" phone="+507 61867935" state="Accepted"/>
+              <Friend name="Marlene Perez" phone="+507 66734913" state="Accepted"/>
+            </FriendsList>
+          </div>
+          <div className="meeting__streaming">
+            <OTSession apiKey={meetingData.apiKey}
+                       sessionId={meetingData.sessionId}
+                       token={meetingData.token}>
+              <OTPublisher/>
+              <OTStreams>
+                <OTSubscriber/>
+              </OTStreams>
+            </OTSession>
+          </div>
+        </div>
+      }
+    </div>
+  );
 };
 
 export default MeetingView;
