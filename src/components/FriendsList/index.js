@@ -29,7 +29,7 @@ const FriendsList = ({meetingId}) => {
   } else {
     return (
       <div className="friends-list">{
-        friends.map((friend) => <Friend key={friend.phone} name={friend.name} phone={friend.phone} state={friend.state}/>)
+        friends.map((friend) => <Friend key={friend.phone} name={friend.name} phone={friend.phone} state={friend.accepted}/>)
       }</div>
     );
   }
