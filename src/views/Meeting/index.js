@@ -34,7 +34,7 @@ const MeetingView = (props) => {
         <title>Meeting {meetingId} | Friends Meet</title>
       </Helmet>
 
-      <Header url={`http://localhost:3000/${meetingId}`}/>
+      <Header url={`http://fm.larboleda.io/${meetingId}`}/>
       {!meetingData ?
         <div className="meeting__loading">Loading meeting...</div> :
         <div className="meeting__container">
