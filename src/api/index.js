@@ -16,6 +16,14 @@ const createMeetingToken = (meetingId, source = null) => axios.post(
   }
 );
 
+const getMeetingFriends = (meetingId, source = null) => axios.get(
+  `${settings.baseApi}/meeting/${meetingId}/friends`,
+  {
+    cancelToken: source && source.token
+  }
+);
+
 export default {
-  createMeetingToken
+  createMeetingToken,
+  getMeetingFriends
 };
