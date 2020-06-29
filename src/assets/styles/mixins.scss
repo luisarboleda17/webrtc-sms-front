@@ -1,0 +1,105 @@
+
+@mixin appearance($val) {
+  -moz-appearance: $val;
+  -webkit-appearance: $val;
+  appearance: $val;
+}
+
+@mixin transform($vals...) {
+  -webkit-transform: $vals;
+  -moz-transform: $vals;
+  -ms-transform: $vals;
+  -o-transform: $vals;
+  transform: $vals;
+}
+
+@mixin opacity($val) {
+  filter: alpha($val);
+  opacity: $val / 100;
+}
+
+/**
+Flex
+ */
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($vals) {
+  -webkit-box-flex: $vals;
+  -moz-box-flex: $vals;
+  -webkit-flex: $vals;
+  -ms-flex: $vals;
+  flex: $vals;
+}
+
+/**
+Animations
+ */
+
+@mixin transition($vals) {
+  -webkit-transition: $vals;
+  -moz-transition: $vals;
+  -o-transition: $vals;
+  transition: $vals;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} { @content; }
+  @-moz-keyframes #{$name} { @content; }
+  @-o-keyframes #{$name} { @content; }
+  @keyframes #{$name} { @content; }
+}
+
+@mixin animation($args...) {
+  -webkit-animation: $args;
+  -moz-animation: $args;
+  -o-animation: $args;
+  animation: $args;
+}
+
+@mixin animation-fill-mode($args...) {
+  -webkit-animation-fill-mode: $args;
+  -moz-animation-fill-mode: $args;
+  -o-animation-fill-mode: $args;
+  animation-fill-mode: $args;
+}
+
+@mixin animation-delay($args...) {
+  -webkit-animation-delay: $args;
+  -moz-animation-delay: $args;
+  -o-animation-delay: $args;
+  animation-delay: $args;
+}
+
+/**
+Border
+ */
+
+@mixin border-radius($args...) {
+  -webkit-border-radius: $args;
+  -moz-border-radius: $args;
+  border-radius: $args;
+}
+
+/**
+Box
+ */
+
+@mixin box-sizing($val) {
+  -webkit-box-sizing: $val;
+  -moz-box-sizing: $val;
+  box-sizing: $val;
+}
+
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  -o-box-shadow: $args;
+  box-shadow: $args;
+}

@@ -1,0 +1,79 @@
+
+@import "../../colors";
+@import "../../assets/styles/mixins";
+
+.meeting {
+  &__info {
+    padding: 1rem 3rem;
+
+    h2 {
+      margin: 0 0 2rem 0;
+      padding: 0;
+
+      color: $black;
+      font-size: 2rem;
+      font-weight: bold;
+      font-family: "Lato", sans-serif;
+    }
+  }
+
+  &__loading {
+    display: block;
+    width: 100%;
+
+    text-align: center;
+    color: $black;
+    font-size: 1.3rem;
+    font-weight: normal;
+    font-family: "Lato", sans-serif;
+  }
+
+  .OTPublisherContainer {
+    padding: 1rem 8rem !important;
+    width: calc(100% - 16rem) !important;
+    height: calc(700px - 2rem) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .meeting {
+    &__info {
+      display: block;
+    }
+
+    &__streaming {
+      display: block;
+      margin: 0 auto;
+      width: 100% !important;
+    }
+
+    .OTPublisherContainer {
+      margin: 0 auto !important;
+      width: 100% !important;
+      height: 500px !important;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .meeting {
+    &__container {
+      @include flexbox();
+      align-items: flex-start;
+    }
+
+    &__info {
+      @include flex(1);
+    }
+
+    &__streaming {
+      @include flex(3);
+    }
+
+    .OTPublisherContainer {
+      padding: 1rem 8rem !important;
+      width: calc(100% - 16rem) !important;
+      height: calc(700px - 2rem) !important;
+    }
+  }
+}
