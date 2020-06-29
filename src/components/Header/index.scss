@@ -1,0 +1,26 @@
+
+@import "../../colors";
+
+header {
+  margin: 0;
+  padding: 3rem;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+
+    color: $black;
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+  }
+
+  a {
+    color: $blue;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: "Lato", sans-serif;
+    text-decoration: none;
+  }
+}

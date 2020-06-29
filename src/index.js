@@ -1,12 +1,24 @@
+
+import './assets/styles/index.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+
+import MeetingView from './views/Meeting';
+
+const App = (props) => (
+  <Switch>
+    <Route path="/:meetingId" component={MeetingView} exact/>
+  </Switch>
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <App/>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
