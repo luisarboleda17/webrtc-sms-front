@@ -1,7 +1,6 @@
 
 import './index.scss';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Header = ({url}) => (
   <header className="header">

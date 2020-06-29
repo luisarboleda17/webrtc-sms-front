@@ -59,7 +59,7 @@
   .meeting {
     &__container {
       @include flexbox();
-      align-items: start;
+      align-items: flex-start;
     }
 
     &__info {
